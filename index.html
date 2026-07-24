@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>allbarber UAE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%, #ff004455, transparent 25%),
+    radial-gradient(circle at 90% 20%, #0066ff55, transparent 25%),
+    radial-gradient(circle at 50% 100%, #8a00ff55, transparent 30%),
+    linear-gradient(135deg, #030303, #111, #050505);
+}
+
+/* HEADER */
+
+header {
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff22;
+  background: #00000088;
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ffd700;
+}
+
+.admin-button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff8c00,
+    #ffd700,
+    #00c853,
+    #008cff,
+    #8a2be2
+  );
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 65px 20px 30px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  color: #ffd700;
+}
+
+.hero p {
+  color: #ccc;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* SEARCH */
+
+.search {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  padding: 6px;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.search button {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    #ffd700,
+    #00c853,
+    #008cff,
+    purple
+  );
+}
+
+/* FILTERS */
+
+.filters {
+  max-width: 1100px;
+  margin: 25px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter {
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #ffffff12;
+  border: 1px solid #ffffff22;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filter:hover {
+  transform: translateY(-3px);
+  background: #ffffff25;
+}
+
+.filter.active {
+  background: #ffd700;
+  color: black;
+}
+
+/* RESULTS */
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.results-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.barbers {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* BARBER CARD */
+
+.barber {
+  background: #ffffff0d;
+  border: 1px solid #ffffff1a;
+  border-radius: 25px;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  transition: .3s;
+}
+
+.barber:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 40px #000;
+}
+
+.barber-top {
+  padding: 25px;
+  background:
+    linear-gradient(
+      135deg,
+      #ff0000,
+      #8a2be2,
+      #0066ff
+    );
+}
+
+.icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.barber-top h3 {
+  font-size: 22px;
+}
+
+.info {
+  padding: 20px;
+}
+
+.location {
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.price {
+  color: #00ff88;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.tag {
+  background: #ffffff12;
+  border: 1px solid #ffffff22;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.book {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background:
+    linear-gradient(
+      90deg,
+      #ff0000,
+      #ff8c00,
+      #ffd700,
+      #00c853,
+      #008cff,
+      #8a2be2
+    );
+}
+
+/* ADMIN PANEL */
+
+#adminPanel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.admin-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-header h2 {
+  color: #ffd700;
+}
+
+.close-admin {
+  background: #ff3333;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.admin-box {
+  background: #151515;
+  border: 1px solid #ffffff22;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.admin-box h3 {
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+  outline: none;
+}
+
+.admin-add {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #222;
+  border-radius: 12px;
+}
+
+.delete-button {
+  background: #ff3333;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* LOGIN */
+
+#loginBox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000000dd;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 350px;
+  background: #151515;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #ffffff22;
+}
+
+.login-card h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #ffd700;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error {
+  color: #ff4444;
+  margin-top: 10px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .search {
+    flex-direction: column;
+    background: transparent;
+    gap: 10px;
+  }
+
+  .search input,
+  .search button {
+    width: 100%;
+  }
+
+  header {
+    padding: 18px;
+  }
+
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+💈 all<span>barber</span>
+</div>
+
+<div>
+
+🇦🇪 UAE
+
+<button
+class="admin-button"
+onclick="openLogin()"
+>
+🔐 Admin
+</button>
+
+</div>
+
+</header>
+
+
+<!-- MAIN APP -->
+
+<section class="hero">
+
+<h1>
+Find Your <span>Barber</span>
+</h1>
+
+<p>
+Discover barbers and men's grooming services in
+<strong>Al Ain, UAE</strong> 🇦🇪
+</p>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search barber, shave, haircut..."
+onkeyup="searchBarbers()"
+>
+
+<button onclick="searchBarbers()">
+🔍 SEARCH
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+<div
+class="filter active"
+onclick="filterService('all',this)"
+>
+All
+</div>
+
+<div
+class="filter"
+onclick="filterService('shave',this)"
+>
+🪒 Shaves
+</div>
+
+<div
+class="filter"
+onclick="filterService('haircut',this)"
+>
+✂️ Haircuts
+</div>
+
+<div
+class="filter"
+onclick="filterService('beard',this)"
+>
+🧔 Beard
+</div>
+
+<div
+class="filter"
+onclick="filterService('facial',this)"
+>
+🧖 Facial
+</div>
+
+<div
+class="filter"
+onclick="filterService('grooming',this)"
+>
+✨ Grooming
+</div>
+
+</div>
+
+
+<!-- BARBERS -->
+
+<section class="container">
+
+<h2 class="results-title">
+💈 Al Ain Barbers
+</h2>
+
+<div
+class="barbers"
+id="barberList"
+>
+
+<!-- BARBERS ARE ADDED HERE -->
+
+</div>
+
+</section>
+
+
+<footer>
+
+💈 allbarber UAE 🇦🇪
+
+</footer>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox">
+
+<div class="login-card">
+
+<h2>
+🔐 Admin Login
+</h2>
+
+<input
+id="passwordInput"
+type="password"
+placeholder="Enter admin password"
+>
+
+<button onclick="login()">
+LOGIN
+</button>
+
+<div
+id="loginError"
+class="error"
+>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel">
+
+<div class="admin-container">
+
+<div class="admin-header">
+
+<h2>
+💈 allbarber Admin Panel
+</h2>
+
+<button
+class="close-admin"
+onclick="closeAdmin()"
+>
+CLOSE
+</button>
+
+</div>
+
+
+<!-- ADD BARBER -->
+
+<div class="admin-box">
+
+<h3>
+➕ Add New Barber
+</h3>
+
+<input
+id="newName"
+class="admin-input"
+placeholder="Barber name"
+>
+
+<input
+id="newLocation"
+class="admin-input"
+placeholder="Location"
+>
+
+<input
+id="newRating"
+class="admin-input"
+placeholder="Rating e.g. 4.8"
+>
+
+<input
+id="newPrice"
+class="admin-input"
+placeholder="Price e.g. 50 AED"
+>
+
+<input
+id="newServices"
+class="admin-input"
+placeholder="Services: haircut, shave, beard"
+>
+
+<button
+class="admin-add"
+onclick="addBarber()"
+>
+ADD BARBER
+</button>
+
+</div>
+
+
+<!-- BARBER MANAGEMENT -->
+
+<div class="admin-box">
+
+<h3>
+💈 Manage Barbers
+</h3>
+
+<div
+id="adminList"
+class="admin-list"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* ADMIN PASSWORD */
+
+const ADMIN_PASSWORD =
+"AllBarber2026";
+
+
+/* STARTER BARBERS */
+
+let barbers =
+JSON.parse(
+localStorage.getItem("allbarberData")
+) || [
+
+{
+name:"Hello Hair Men Salon",
+location:"Ayla Grand Hotel, Central District, Al Ain",
+rating:"4.7",
+price:"Contact barber",
+services:[
+"haircut",
+"shave",
+"beard",
+"facial",
+"grooming"
+]
+},
+
+{
+name:"Man Lab Gentlemen's Spa",
+location:"Al Tiwayya, Al Ain",
+rating:"4.7",
+price:"Contact barber",
+services:[
+"haircut",
+"beard",
+"grooming"
+]
+},
+
+{
+name:"AL Waad Barbershop",
+location:"Al Noud, Al Ain",
+rating:"4.9",
+price:"Contact barber",
+services:[
+"haircut",
+"beard",
+"grooming"
+]
+},
+
+{
+name:"DENIM Gents' Salon",
+location:"Al Noud, Al Ain",
+rating:"4.4",
+price:"Contact barber",
+services:[
+"haircut",
+"beard",
+"grooming"
+]
+},
+
+{
+name:"Imperial Cut Rotana",
+location:"Al Jahili, Al Ain",
+rating:"5.0",
+price:"Contact barber",
+services:[
+"haircut",
+"shave",
+"beard",
+"grooming"
+]
+},
+
+{
+name:"1980 Men's Spa",
+location:"Khalid Bin Sultan Street, Al Ain",
+rating:"4.2",
+price:"Contact barber",
+services:[
+"haircut",
+"beard",
+"grooming"
+]
+}
+
+];
+
+
+let currentFilter =
+"all";
+
+
+/* SAVE */
+
+function saveData(){
+
+localStorage.setItem(
+"allbarberData",
+JSON.stringify(barbers)
+);
+
+}
+
+
+/* DISPLAY BARBERS */
+
+function displayBarbers(){
+
+const list =
+document.getElementById(
+"barberList"
+);
+
+list.innerHTML = "";
+
+
+barbers.forEach(
+function(barber,index){
+
+const card =
+document.createElement(
+"div"
+);
+
+card.className =
+"barber";
+
+
+let servicesHTML =
+"";
+
+
+barber.services.forEach(
+function(service){
+
+let icon =
+"✨";
+
+if(service === "shave")
+icon = "🪒";
+
+if(service === "haircut")
+icon = "✂️";
+
+if(service === "beard")
+icon = "🧔";
+
+if(service === "facial")
+icon = "🧖";
+
+servicesHTML +=
+`<span class="tag">
+${icon} ${service}
+</span>`;
+
+});
+
+
+card.innerHTML = `
+
+<div class="barber-top">
+
+<div class="icon">
+💈
+</div>
+
+<h3>
+${barber.name}
+</h3>
+
+</div>
+
+<div class="info">
+
+<div class="location">
+📍 ${barber.location}
+</div>
+
+<div class="rating">
+⭐ ${barber.rating}
+</div>
+
+<div class="price">
+💰 ${barber.price}
+</div>
+
+<div class="tags">
+${servicesHTML}
+</div>
+
+<button
+class="book"
+onclick="book('${barber.name.replace(/'/g,"\\'")}')"
+>
+BOOK NOW
+</button>
+
+</div>
+
+`;
+
+
+card.dataset.search =
+(
+barber.name +
+" " +
+barber.location +
+" " +
+barber.services.join(" ")
+)
+.toLowerCase();
+
+
+list.appendChild(card);
+
+});
+
+}
+
+
+/* SEARCH */
+
+function searchBarbers(){
+
+const search =
+document
+.getElementById(
+"searchInput"
+)
+.value
+.toLowerCase()
+.trim();
+
+
+const cards =
+document
+.querySelectorAll(
+".barber"
+);
+
+
+cards.forEach(
+function(card){
+
+const text =
+card.dataset.search;
+
+const matchesSearch =
+text.includes(search);
+
+const matchesFilter =
+currentFilter === "all" ||
+text.includes(
+currentFilter
+);
+
+card.style.display =
+matchesSearch &&
+matchesFilter
+? "block"
+: "none";
+
+});
+
+}
+
+
+/* FILTER */
+
+function filterService(
+service,
+button
+){
+
+currentFilter =
+service;
+
+
+document
+.querySelectorAll(
+".filter"
+)
+.forEach(
+function(item){
+
+item.classList
+.remove("active");
+
+});
+
+
+button
+.classList
+.add("active");
+
+
+searchBarbers();
+
+}
+
+
+/* BOOK */
+
+function book(barber){
+
+alert(
+"You selected " +
+barber +
+".\n\nBooking system coming soon!"
+);
+
+}
+
+
+/* LOGIN */
+
+function openLogin(){
+
+document
+.getElementById(
+"loginBox"
+)
+.style.display =
+"flex";
+
+document
+.getElementById(
+"passwordInput"
+)
+.focus();
+
+}
+
+
+/* LOGIN CHECK */
+
+function login(){
+
+const password =
+document
+.getElementById(
+"passwordInput"
+)
+.value;
+
+
+if(password ===
+ADMIN_PASSWORD){
+
+document
+.getElementById(
+"loginBox"
+)
+.style.display =
+"none";
+
+document
+.getElementById(
+"adminPanel"
+)
+.style.display =
+"block";
+
+document
+.getElementById(
+"passwordInput"
+)
+.value =
+"";
+
+document
+.getElementById(
+"loginError"
+)
+.innerText =
+"";
+
+displayAdmin();
+
+}else{
+
+document
+.getElementById(
+"loginError"
+)
+.innerText =
+"Wrong password.";
+
+}
+
+}
+
+
+/* ADMIN DISPLAY */
+
+function displayAdmin(){
+
+const list =
+document
+.getElementById(
+"adminList"
+);
+
+list.innerHTML =
+"";
+
+
+barbers.forEach(
+function(barber,index){
+
+const item =
+document.createElement(
+"div"
+);
+
+item.className =
+"admin-item";
+
+
+item.innerHTML = `
+
+<div>
+
+<strong>
+${barber.name}
+</strong>
+
+<br>
+
+<small>
+📍 ${barber.location}
+</small>
+
+<br>
+
+<small>
+Services:
+${barber.services.join(", ")}
+</small>
+
+</div>
+
+<button
+class="delete-button"
+onclick="deleteBarber(${index})"
+>
+DELETE
+</button>
+
+`;
+
+
+list.appendChild(item);
+
+});
+
+}
+
+
+/* ADD BARBER */
+
+function addBarber(){
+
+const name =
+document
+.getElementById(
+"newName"
+)
+.value
+.trim();
+
+
+const location =
+document
+.getElementById(
+"newLocation"
+)
+.value
+.trim();
+
+
+const rating =
+document
+.getElementById(
+"newRating"
+)
+.value
+.trim();
+
+
+const price =
+document
+.getElementById(
+"newPrice"
+)
+.value
+.trim();
+
+
+const servicesText =
+document
+.getElementById(
+"newServices"
+)
+.value
+.toLowerCase()
+.trim();
+
+
+if(!name ||
+!location){
+
+alert(
+"Please enter at least a barber name and location."
+);
+
+return;
+
+}
+
+
+const services =
+servicesText
+.split(",")
+.map(
+function(item){
+
+return item.trim();
+
+}
+)
+.filter(Boolean);
+
+
+barbers.push({
+
+name:name,
+
+location:location,
+
+rating:
+rating ||
+"New",
+
+price:
+price ||
+"Contact barber",
+
+services:
+services
+
+});
+
+
+saveData();
+
+displayBarbers();
+
+displayAdmin();
+
+
+document
+.getElementById(
+"newName"
+)
+.value =
+"";
+
+document
+.getElementById(
+"newLocation"
+)
+.value =
+"";
+
+document
+.getElementById(
+"newRating"
+)
+.value =
+"";
+
+document
+.getElementById(
+"newPrice"
+)
+.value =
+"";
+
+document
+.getElementById(
+"newServices"
+)
+.value =
+"";
+
+
+alert(
+"Barber added successfully!"
+);
+
+}
+
+
+/* DELETE */
+
+function deleteBarber(index){
+
+if(
+confirm(
+"Delete this barber?"
+)
+){
+
+barbers.splice(
+index,
+1
+);
+
+saveData();
+
+displayBarbers();
+
+displayAdmin();
+
+}
+
+}
+
+
+/* CLOSE ADMIN */
+
+function closeAdmin(){
+
+document
+.getElementById(
+"adminPanel"
+)
+.style.display =
+"none";
+
+}
+
+
+/* START */
+
+displayBarbers();
+
+</script>
+
+</body>
+</html>
