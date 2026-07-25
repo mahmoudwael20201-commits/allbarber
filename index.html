@@ -6,489 +6,385 @@
 <title>allbarber UAE</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+color:white;
+min-height:100vh;
+background:
+radial-gradient(circle at 10% 10%,#ff004455,transparent 25%),
+radial-gradient(circle at 90% 20%,#0066ff55,transparent 25%),
+radial-gradient(circle at 50% 100%,#8a00ff55,transparent 30%),
+linear-gradient(135deg,#030303,#111,#050505);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: white;
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 10% 10%, #ff004455, transparent 25%),
-    radial-gradient(circle at 90% 20%, #0066ff55, transparent 25%),
-    radial-gradient(circle at 50% 100%, #8a00ff55, transparent 30%),
-    linear-gradient(135deg, #030303, #111, #050505);
+header{
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ffffff22;
+background:#00000088;
+position:sticky;
+top:0;
+z-index:10;
 }
 
-/* HEADER */
+.logo{font-size:30px;font-weight:bold}
+.logo span{color:#ffd700}
 
-header {
-  padding: 20px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ffffff22;
-  background: #00000088;
-  backdrop-filter: blur(15px);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+button{
+cursor:pointer;
+font-weight:bold;
 }
 
-.logo {
-  font-size: 30px;
-  font-weight: bold;
+.admin-button{
+padding:11px 18px;
+border:0;
+border-radius:25px;
+color:white;
+background:linear-gradient(90deg,red,orange,#ffd700,#00c853,#008cff,#8a2be2);
 }
 
-.logo span {
-  color: #ffd700;
+.hero{
+text-align:center;
+padding:65px 20px 30px;
 }
 
-.admin-button {
-  padding: 11px 18px;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(
-    90deg,
-    #ff0000,
-    #ff8c00,
-    #ffd700,
-    #00c853,
-    #008cff,
-    #8a2be2
-  );
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.hero h1{
+font-size:52px;
+margin-bottom:12px;
 }
 
-/* HERO */
+.hero h1 span{color:#ffd700}
 
-.hero {
-  text-align: center;
-  padding: 65px 20px 30px;
+.hero p{
+color:#ccc;
+font-size:18px;
+margin-bottom:30px;
 }
 
-.hero h1 {
-  font-size: 52px;
-  margin-bottom: 12px;
+.search{
+max-width:700px;
+margin:auto;
+display:flex;
+background:white;
+border-radius:50px;
+padding:6px;
 }
 
-.hero h1 span {
-  color: #ffd700;
+.search input{
+flex:1;
+border:0;
+outline:0;
+padding:15px 20px;
+font-size:16px;
+border-radius:50px;
 }
 
-.hero p {
-  color: #ccc;
-  font-size: 18px;
-  margin-bottom: 30px;
+.search button{
+border:0;
+padding:15px 25px;
+border-radius:50px;
+color:white;
+background:linear-gradient(90deg,red,orange,#ffd700,#00c853,#008cff,purple);
 }
 
-/* SEARCH */
-
-.search {
-  max-width: 700px;
-  margin: auto;
-  display: flex;
-  background: white;
-  border-radius: 50px;
-  padding: 6px;
+.filters{
+max-width:1100px;
+margin:25px auto;
+padding:0 20px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-.search input {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 15px 20px;
-  font-size: 16px;
-  border-radius: 50px;
+.filter{
+padding:12px 18px;
+border-radius:30px;
+background:#ffffff12;
+border:1px solid #ffffff22;
+color:white;
 }
 
-.search button {
-  border: none;
-  padding: 15px 25px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(
-    90deg,
-    red,
-    orange,
-    #ffd700,
-    #00c853,
-    #008cff,
-    purple
-  );
+.filter.active{
+background:#ffd700;
+color:#000;
 }
 
-/* FILTERS */
-
-.filters {
-  max-width: 1100px;
-  margin: 25px auto;
-  padding: 0 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
+.container{
+max-width:1150px;
+margin:auto;
+padding:30px 20px;
 }
 
-.filter {
-  padding: 12px 18px;
-  border-radius: 30px;
-  background: #ffffff12;
-  border: 1px solid #ffffff22;
-  cursor: pointer;
-  transition: .3s;
+.results-title{
+text-align:center;
+margin-bottom:30px;
+font-size:30px;
 }
 
-.filter:hover {
-  transform: translateY(-3px);
-  background: #ffffff25;
+.barbers{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
-.filter.active {
-  background: #ffd700;
-  color: black;
+.barber{
+background:#ffffff0d;
+border:1px solid #ffffff1a;
+border-radius:25px;
+overflow:hidden;
 }
 
-/* RESULTS */
-
-.container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 30px 20px;
+.barber-top{
+padding:25px;
+background:linear-gradient(135deg,#ff0000,#8a2be2,#0066ff);
 }
 
-.results-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 30px;
+.icon{
+font-size:55px;
+margin-bottom:10px;
 }
 
-.barbers {
-  display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+.info{padding:20px}
+
+.location{
+color:#bbb;
+margin-bottom:10px;
 }
 
-/* BARBER CARD */
-
-.barber {
-  background: #ffffff0d;
-  border: 1px solid #ffffff1a;
-  border-radius: 25px;
-  overflow: hidden;
-  backdrop-filter: blur(15px);
-  transition: .3s;
+.rating{
+color:#ffd700;
+margin-bottom:15px;
 }
 
-.barber:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 15px 40px #000;
+.price{
+color:#00ff88;
+font-size:18px;
+font-weight:bold;
+margin-bottom:15px;
 }
 
-.barber-top {
-  padding: 25px;
-  background:
-    linear-gradient(
-      135deg,
-      #ff0000,
-      #8a2be2,
-      #0066ff
-    );
+.tags{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-bottom:18px;
 }
 
-.icon {
-  font-size: 55px;
-  margin-bottom: 10px;
+.tag{
+background:#ffffff12;
+border:1px solid #ffffff22;
+padding:7px 10px;
+border-radius:20px;
+font-size:12px;
 }
 
-.barber-top h3 {
-  font-size: 22px;
+.book{
+width:100%;
+padding:14px;
+border:0;
+border-radius:12px;
+color:white;
+background:linear-gradient(90deg,red,orange,#ffd700,#00c853,#008cff,#8a2be2);
 }
 
-.info {
-  padding: 20px;
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:#000000dd;
+z-index:200;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-.location {
-  color: #bbb;
-  margin-bottom: 10px;
+.card{
+width:430px;
+max-width:100%;
+max-height:90vh;
+overflow-y:auto;
+background:#151515;
+padding:30px;
+border-radius:20px;
 }
 
-.rating {
-  color: #ffd700;
-  margin-bottom: 15px;
+.card h2{
+color:#ffd700;
+margin-bottom:20px;
 }
 
-.price {
-  color: #00ff88;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.input,.select{
+width:100%;
+padding:13px;
+margin-bottom:12px;
+border-radius:10px;
+border:1px solid #444;
+background:#222;
+color:white;
 }
 
-.tags {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
+.primary{
+width:100%;
+padding:13px;
+border:0;
+border-radius:10px;
+background:#00c853;
+color:white;
 }
 
-.tag {
-  background: #ffffff12;
-  border: 1px solid #ffffff22;
-  padding: 7px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+.secondary{
+width:100%;
+padding:13px;
+border:0;
+border-radius:10px;
+background:#555;
+color:white;
+margin-top:10px;
 }
 
-.book {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background:
-    linear-gradient(
-      90deg,
-      #ff0000,
-      #ff8c00,
-      #ffd700,
-      #00c853,
-      #008cff,
-      #8a2be2
-    );
+.error{
+color:#ff4444;
+margin-top:10px;
 }
 
-/* ADMIN PANEL */
-
-#adminPanel {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #050505;
-  z-index: 100;
-  overflow-y: auto;
-  padding: 30px;
+.success{
+color:#00ff88;
+margin-top:10px;
 }
 
-.admin-container {
-  max-width: 900px;
-  margin: auto;
+.admin-panel{
+display:none;
+position:fixed;
+inset:0;
+background:#050505;
+z-index:100;
+overflow-y:auto;
+padding:30px;
 }
 
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+.admin-container{
+max-width:1000px;
+margin:auto;
 }
 
-.admin-header h2 {
-  color: #ffd700;
+.admin-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
 }
 
-.close-admin {
-  background: #ff3333;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
+.admin-header h2{color:#ffd700}
+
+.close-admin{
+background:#ff3333;
+color:white;
+border:0;
+padding:10px 18px;
+border-radius:10px;
 }
 
-.admin-box {
-  background: #151515;
-  border: 1px solid #ffffff22;
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 25px;
+.admin-box{
+background:#151515;
+padding:25px;
+border-radius:20px;
+margin-bottom:25px;
 }
 
-.admin-box h3 {
-  margin-bottom: 20px;
-  color: #ffd700;
+.admin-box h3{
+color:#ffd700;
+margin-bottom:20px;
 }
 
-.admin-input {
-  width: 100%;
-  padding: 13px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: 1px solid #444;
-  background: #222;
-  color: white;
-  outline: none;
+.admin-item{
+background:#222;
+padding:18px;
+border-radius:12px;
+margin-bottom:12px;
 }
 
-.admin-add {
-  padding: 13px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #00c853;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.approve{
+background:#00c853;
+color:white;
+border:0;
+padding:9px 15px;
+border-radius:8px;
+margin:5px;
 }
 
-.admin-list {
-  display: grid;
-  gap: 12px;
+.reject{
+background:#ff3333;
+color:white;
+border:0;
+padding:9px 15px;
+border-radius:8px;
+margin:5px;
 }
 
-.admin-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #222;
-  border-radius: 12px;
+.delete{
+background:#555;
+color:white;
+border:0;
+padding:9px 15px;
+border-radius:8px;
+margin:5px;
 }
 
-.delete-button {
-  background: #ff3333;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
+.status{
+margin:10px 0;
+font-weight:bold;
 }
 
-/* LOGIN */
-
-#loginBox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #000000dd;
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
+footer{
+text-align:center;
+padding:40px;
+color:#888;
 }
 
-.login-card {
-  width: 350px;
-  background: #151515;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  border: 1px solid #ffffff22;
+@media(max-width:600px){
+.hero h1{font-size:40px}
+
+.search{
+flex-direction:column;
+background:transparent;
+gap:10px;
 }
 
-.login-card h2 {
-  color: #ffd700;
-  margin-bottom: 20px;
+.search input,
+.search button{
+width:100%;
 }
 
-.login-card input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  margin-bottom: 15px;
+header{
+padding:15px;
 }
-
-.login-card button {
-  width: 100%;
-  padding: 13px;
-  border: none;
-  border-radius: 10px;
-  background: #ffd700;
-  font-weight: bold;
-  cursor: pointer;
 }
-
-.error {
-  color: #ff4444;
-  margin-top: 10px;
-}
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #888;
-}
-
-/* MOBILE */
-
-@media(max-width:600px) {
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  .search {
-    flex-direction: column;
-    background: transparent;
-    gap: 10px;
-  }
-
-  .search input,
-  .search button {
-    width: 100%;
-  }
-
-  header {
-    padding: 18px;
-  }
-
-  .admin-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-<div class="logo">
-💈 all<span>barber</span>
-</div>
+<div class="logo">💈 all<span>barber</span></div>
 
 <div>
-
 🇦🇪 UAE
 
-<button
-class="admin-button"
-onclick="openLogin()"
->
+<button class="admin-button" onclick="openLogin()">
 🔐 Admin
 </button>
-
 </div>
-
 </header>
 
 
-<!-- MAIN APP -->
-
 <section class="hero">
 
-<h1>
-Find Your <span>Barber</span>
-</h1>
+<h1>Find Your <span>Barber</span></h1>
 
 <p>
 Discover barbers and men's grooming services in
@@ -501,7 +397,7 @@ Discover barbers and men's grooming services in
 id="searchInput"
 type="text"
 placeholder="Search barber, shave, haircut..."
-onkeyup="searchBarbers()"
+oninput="searchBarbers()"
 >
 
 <button onclick="searchBarbers()">
@@ -513,56 +409,30 @@ onkeyup="searchBarbers()"
 </section>
 
 
-<!-- FILTERS -->
-
 <div class="filters">
 
-<div
-class="filter active"
-onclick="filterService('all',this)"
->
+<button class="filter active" onclick="filterService('all',this)">
 All
-</div>
+</button>
 
-<div
-class="filter"
-onclick="filterService('shave',this)"
->
+<button class="filter" onclick="filterService('shave',this)">
 🪒 Shaves
-</div>
+</button>
 
-<div
-class="filter"
-onclick="filterService('haircut',this)"
->
+<button class="filter" onclick="filterService('haircut',this)">
 ✂️ Haircuts
-</div>
+</button>
 
-<div
-class="filter"
-onclick="filterService('beard',this)"
->
+<button class="filter" onclick="filterService('beard',this)">
 🧔 Beard
-</div>
+</button>
 
-<div
-class="filter"
-onclick="filterService('facial',this)"
->
+<button class="filter" onclick="filterService('facial',this)">
 🧖 Facial
-</div>
-
-<div
-class="filter"
-onclick="filterService('grooming',this)"
->
-✨ Grooming
-</div>
+</button>
 
 </div>
 
-
-<!-- BARBERS -->
 
 <section class="container">
 
@@ -570,187 +440,219 @@ onclick="filterService('grooming',this)"
 💈 Al Ain Barbers
 </h2>
 
-<div
-class="barbers"
-id="barberList"
->
-
-<!-- BARBERS ARE ADDED HERE -->
-
-</div>
+<div class="barbers" id="barberList"></div>
 
 </section>
 
 
 <footer>
-
 💈 allbarber UAE 🇦🇪
-
 </footer>
 
 
-<!-- LOGIN -->
+<!-- ADMIN LOGIN -->
 
-<div id="loginBox">
+<div class="overlay" id="loginBox">
 
-<div class="login-card">
+<div class="card">
 
-<h2>
-🔐 Admin Login
-</h2>
+<h2>🔐 Admin Login</h2>
 
 <input
 id="passwordInput"
+class="input"
 type="password"
 placeholder="Enter admin password"
 >
 
-<button onclick="login()">
+<button class="primary" onclick="login()">
 LOGIN
 </button>
 
-<div
-id="loginError"
-class="error"
+<div id="loginError" class="error"></div>
+
+<button class="secondary" onclick="closeLogin()">
+CANCEL
+</button>
+
+</div>
+</div>
+
+
+<!-- BOOKING -->
+
+<div class="overlay" id="bookingModal">
+
+<div class="card">
+
+<h2>📅 Book Appointment</h2>
+
+<input id="bookingBarber" class="input" readonly>
+
+<input
+id="customerName"
+class="input"
+placeholder="Your name"
 >
-</div>
+
+<input
+id="customerPhone"
+class="input"
+placeholder="Phone number"
+>
+
+<input
+id="bookingDate"
+class="input"
+type="date"
+>
+
+<input
+id="bookingTime"
+class="input"
+type="time"
+>
+
+<select id="bookingService" class="select">
+
+<option value="haircut">✂️ Haircut</option>
+<option value="shave">🪒 Shave</option>
+<option value="beard">🧔 Beard</option>
+<option value="facial">🧖 Facial</option>
+
+</select>
+
+<button class="primary" onclick="submitBooking()">
+📨 SEND BOOKING
+</button>
+
+<button class="secondary" onclick="closeBooking()">
+CANCEL
+</button>
+
+<div id="bookingMessage"></div>
 
 </div>
-
 </div>
 
 
 <!-- ADMIN PANEL -->
 
-<div id="adminPanel">
+<div class="admin-panel" id="adminPanel">
 
 <div class="admin-container">
 
 <div class="admin-header">
 
-<h2>
-💈 allbarber Admin Panel
-</h2>
+<h2>💈 allbarber Admin Panel</h2>
 
-<button
-class="close-admin"
-onclick="closeAdmin()"
->
+<button class="close-admin" onclick="closeAdmin()">
 CLOSE
 </button>
 
 </div>
 
 
-<!-- ADD BARBER -->
+<div class="admin-box">
+
+<h3>📅 Customer Bookings</h3>
+
+<div id="bookingList">
+Loading bookings...
+</div>
+
+</div>
+
 
 <div class="admin-box">
 
-<h3>
-➕ Add New Barber
-</h3>
+<h3>💈 Manage Barbers</h3>
 
 <input
 id="newName"
-class="admin-input"
+class="input"
 placeholder="Barber name"
 >
 
 <input
 id="newLocation"
-class="admin-input"
+class="input"
 placeholder="Location"
 >
 
 <input
 id="newRating"
-class="admin-input"
-placeholder="Rating e.g. 4.8"
+class="input"
+placeholder="Rating"
 >
 
 <input
 id="newPrice"
-class="admin-input"
-placeholder="Price e.g. 50 AED"
+class="input"
+placeholder="Price"
 >
 
 <input
 id="newServices"
-class="admin-input"
-placeholder="Services: haircut, shave, beard"
+class="input"
+placeholder="Services: haircut, shave, beard, facial"
 >
 
-<button
-class="admin-add"
-onclick="addBarber()"
->
-ADD BARBER
+<button class="primary" onclick="addBarber()">
+➕ ADD BARBER
 </button>
 
-</div>
+<br><br>
 
-
-<!-- BARBER MANAGEMENT -->
-
-<div class="admin-box">
-
-<h3>
-💈 Manage Barbers
-</h3>
-
-<div
-id="adminList"
-class="admin-list"
->
-</div>
+<div id="adminList"></div>
 
 </div>
 
 </div>
-
 </div>
 
 
 <script>
 
+/* ================================
+   SUPABASE
+================================ */
 
-/* ADMIN PASSWORD */
+const SUPABASE_URL =
+"https://frkmrxlovberhpcdeizx.supabase.co";
+
+const SUPABASE_KEY =
+sb_publishable_7X86Ej3K9yXSxQqYigFnJw_sqU8RciY
+
+
+/* ================================
+   ADMIN PASSWORD
+================================ */
 
 const ADMIN_PASSWORD =
 "AllBarber2026";
 
 
-/* STARTER BARBERS */
+/* ================================
+   BARBERS
+================================ */
 
-let barbers =
-JSON.parse(
-localStorage.getItem("allbarberData")
-) || [
+let barbers = [
 
 {
 name:"Hello Hair Men Salon",
-location:"Ayla Grand Hotel, Central District, Al Ain",
+location:"Al Ain",
 rating:"4.7",
 price:"Contact barber",
-services:[
-"haircut",
-"shave",
-"beard",
-"facial",
-"grooming"
-]
+services:["haircut","shave","beard","facial"]
 },
 
 {
 name:"Man Lab Gentlemen's Spa",
-location:"Al Tiwayya, Al Ain",
+location:"Al Ain",
 rating:"4.7",
 price:"Contact barber",
-services:[
-"haircut",
-"beard",
-"grooming"
-]
+services:["haircut","shave","beard","facial"]
 },
 
 {
@@ -758,11 +660,7 @@ name:"AL Waad Barbershop",
 location:"Al Noud, Al Ain",
 rating:"4.9",
 price:"Contact barber",
-services:[
-"haircut",
-"beard",
-"grooming"
-]
+services:["haircut","shave","beard"]
 },
 
 {
@@ -770,11 +668,7 @@ name:"DENIM Gents' Salon",
 location:"Al Noud, Al Ain",
 rating:"4.4",
 price:"Contact barber",
-services:[
-"haircut",
-"beard",
-"grooming"
-]
+services:["haircut","beard"]
 },
 
 {
@@ -782,110 +676,111 @@ name:"Imperial Cut Rotana",
 location:"Al Jahili, Al Ain",
 rating:"5.0",
 price:"Contact barber",
-services:[
-"haircut",
-"shave",
-"beard",
-"grooming"
-]
+services:["haircut","shave","beard"]
 },
 
 {
-name:"1980 Men's Spa",
-location:"Khalid Bin Sultan Street, Al Ain",
-rating:"4.2",
+name:"Classic Gents Barber",
+location:"Al Ain",
+rating:"4.6",
 price:"Contact barber",
-services:[
-"haircut",
-"beard",
-"grooming"
-]
+services:["haircut","shave","beard"]
+},
+
+{
+name:"Royal Men's Grooming",
+location:"Al Ain",
+rating:"4.8",
+price:"Contact barber",
+services:["haircut","shave","beard","facial"]
 }
 
 ];
 
 
-let currentFilter =
-"all";
+let currentFilter = "all";
 
 
-/* SAVE */
+/* ================================
+   SUPABASE REQUEST
+================================ */
 
-function saveData(){
+async function supabaseRequest(path,options={}){
 
-localStorage.setItem(
-"allbarberData",
-JSON.stringify(barbers)
+const response =
+await fetch(
+SUPABASE_URL +
+"/rest/v1/" +
+path,
+{
+...options,
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer "+SUPABASE_KEY,
+"Content-Type":"application/json",
+"Prefer":"return=representation",
+...(options.headers || {})
+}
+}
 );
+
+if(!response.ok){
+
+const error =
+await response.text();
+
+throw new Error(error);
+
+}
+
+const text =
+await response.text();
+
+return text ? JSON.parse(text) : [];
 
 }
 
 
-/* DISPLAY BARBERS */
+/* ================================
+   DISPLAY BARBERS
+================================ */
 
 function displayBarbers(){
 
 const list =
-document.getElementById(
-"barberList"
-);
+document.getElementById("barberList");
 
 list.innerHTML = "";
 
-
-barbers.forEach(
-function(barber,index){
+barbers.forEach((barber,index)=>{
 
 const card =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
-card.className =
-"barber";
+card.className = "barber";
 
+card.dataset.search =
+(
+barber.name+" "+
+barber.location+" "+
+barber.services.join(" ")
+).toLowerCase();
 
 let servicesHTML =
-"";
-
-
-barber.services.forEach(
-function(service){
-
-let icon =
-"✨";
-
-if(service === "shave")
-icon = "🪒";
-
-if(service === "haircut")
-icon = "✂️";
-
-if(service === "beard")
-icon = "🧔";
-
-if(service === "facial")
-icon = "🧖";
-
-servicesHTML +=
-`<span class="tag">
-${icon} ${service}
-</span>`;
-
-});
-
+barber.services
+.map(
+service =>
+`<span class="tag">${service}</span>`
+)
+.join("");
 
 card.innerHTML = `
 
 <div class="barber-top">
 
-<div class="icon">
-💈
-</div>
+<div class="icon">💈</div>
 
-<h3>
-${barber.name}
-</h3>
+<h3>${barber.name}</h3>
 
 </div>
 
@@ -909,26 +804,13 @@ ${servicesHTML}
 
 <button
 class="book"
-onclick="book('${barber.name.replace(/'/g,"\\'")}')"
+onclick="openBooking(${index})"
 >
-BOOK NOW
+📅 BOOK NOW
 </button>
 
 </div>
-
 `;
-
-
-card.dataset.search =
-(
-barber.name +
-" " +
-barber.location +
-" " +
-barber.services.join(" ")
-)
-.toLowerCase();
-
 
 list.appendChild(card);
 
@@ -937,45 +819,29 @@ list.appendChild(card);
 }
 
 
-/* SEARCH */
+/* ================================
+   SEARCH
+================================ */
 
 function searchBarbers(){
 
 const search =
-document
-.getElementById(
-"searchInput"
-)
+document.getElementById("searchInput")
 .value
-.toLowerCase()
-.trim();
+.toLowerCase();
 
-
-const cards =
-document
-.querySelectorAll(
-".barber"
-);
-
-
-cards.forEach(
-function(card){
-
-const text =
-card.dataset.search;
+document.querySelectorAll(".barber")
+.forEach(card=>{
 
 const matchesSearch =
-text.includes(search);
+card.dataset.search.includes(search);
 
 const matchesFilter =
 currentFilter === "all" ||
-text.includes(
-currentFilter
-);
+card.dataset.search.includes(currentFilter);
 
 card.style.display =
-matchesSearch &&
-matchesFilter
+matchesSearch && matchesFilter
 ? "block"
 : "none";
 
@@ -984,190 +850,404 @@ matchesFilter
 }
 
 
-/* FILTER */
+/* ================================
+   FILTER
+================================ */
 
-function filterService(
-service,
-button
-){
+function filterService(service,button){
 
-currentFilter =
-service;
+currentFilter = service;
 
+document.querySelectorAll(".filter")
+.forEach(item =>
+item.classList.remove("active")
+);
 
-document
-.querySelectorAll(
-".filter"
-)
-.forEach(
-function(item){
-
-item.classList
-.remove("active");
-
-});
-
-
-button
-.classList
-.add("active");
-
+button.classList.add("active");
 
 searchBarbers();
 
 }
 
 
-/* BOOK */
+/* ================================
+   BOOKING
+================================ */
 
-function book(barber){
+function openBooking(index){
 
-alert(
-"You selected " +
-barber +
-".\n\nBooking system coming soon!"
-);
+document.getElementById("bookingBarber")
+.value = barbers[index].name;
+
+document.getElementById("bookingMessage")
+.innerHTML = "";
+
+document.getElementById("bookingModal")
+.style.display = "flex";
 
 }
 
 
-/* LOGIN */
+function closeBooking(){
+
+document.getElementById("bookingModal")
+.style.display = "none";
+
+}
+
+
+async function submitBooking(){
+
+const barber =
+document.getElementById("bookingBarber").value;
+
+const name =
+document.getElementById("customerName")
+.value.trim();
+
+const phone =
+document.getElementById("customerPhone")
+.value.trim();
+
+const date =
+document.getElementById("bookingDate").value;
+
+const time =
+document.getElementById("bookingTime").value;
+
+const service =
+document.getElementById("bookingService").value;
+
+const message =
+document.getElementById("bookingMessage");
+
+if(!name || !phone || !date || !time){
+
+message.innerHTML =
+'<div class="error">Please fill in all booking details.</div>';
+
+return;
+
+}
+
+message.innerHTML = "Sending booking...";
+
+try{
+
+await supabaseRequest(
+"bookings",
+{
+method:"POST",
+
+body:JSON.stringify({
+
+barber_name:barber,
+customer_name:name,
+customer_phone:phone,
+booking_date:date,
+booking_time:time,
+service:service,
+status:"Pending"
+
+})
+
+}
+);
+
+message.innerHTML =
+'<div class="success">✅ Booking sent! The admin will review it.</div>';
+
+document.getElementById("customerName").value = "";
+document.getElementById("customerPhone").value = "";
+
+}catch(error){
+
+console.error(error);
+
+message.innerHTML =
+'<div class="error">❌ Booking failed. Please try again.</div>';
+
+}
+
+}
+
+
+/* ================================
+   ADMIN LOGIN
+================================ */
 
 function openLogin(){
 
-document
-.getElementById(
-"loginBox"
-)
-.style.display =
-"flex";
-
-document
-.getElementById(
-"passwordInput"
-)
-.focus();
+document.getElementById("loginBox")
+.style.display = "flex";
 
 }
 
 
-/* LOGIN CHECK */
+function closeLogin(){
 
-function login(){
+document.getElementById("loginBox")
+.style.display = "none";
+
+}
+
+
+async function login(){
 
 const password =
-document
-.getElementById(
-"passwordInput"
-)
-.value;
+document.getElementById("passwordInput").value;
 
+if(password !== ADMIN_PASSWORD){
 
-if(password ===
-ADMIN_PASSWORD){
-
-document
-.getElementById(
-"loginBox"
-)
-.style.display =
-"none";
-
-document
-.getElementById(
-"adminPanel"
-)
-.style.display =
-"block";
-
-document
-.getElementById(
-"passwordInput"
-)
-.value =
-"";
-
-document
-.getElementById(
-"loginError"
-)
-.innerText =
-"";
-
-displayAdmin();
-
-}else{
-
-document
-.getElementById(
-"loginError"
-)
+document.getElementById("loginError")
 .innerText =
 "Wrong password.";
 
-}
+return;
 
 }
 
+closeLogin();
 
-/* ADMIN DISPLAY */
+document.getElementById("adminPanel")
+.style.display = "block";
 
-function displayAdmin(){
+await loadBookings();
+
+displayAdmin();
+
+}
+
+
+/* ================================
+   LOAD BOOKINGS
+================================ */
+
+async function loadBookings(){
 
 const list =
-document
-.getElementById(
-"adminList"
-);
+document.getElementById("bookingList");
 
 list.innerHTML =
-"";
+"Loading bookings...";
 
+try{
 
-barbers.forEach(
-function(barber,index){
+const bookings =
+await supabaseRequest(
+"bookings?select=*&order=created_at.desc"
+);
+
+list.innerHTML = "";
+
+if(bookings.length === 0){
+
+list.innerHTML =
+"<p>No bookings yet.</p>";
+
+return;
+
+}
+
+bookings.forEach(booking=>{
 
 const item =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
 item.className =
 "admin-item";
 
-
 item.innerHTML = `
 
-<div>
-
 <strong>
-${barber.name}
+💈 ${booking.barber_name}
 </strong>
 
+<br><br>
+
+👤 Customer:
+${booking.customer_name}
+
 <br>
 
-<small>
-📍 ${barber.location}
-</small>
+📱 Phone:
+${booking.customer_phone}
 
 <br>
 
-<small>
-Services:
-${barber.services.join(", ")}
-</small>
+📅 Date:
+${booking.booking_date}
 
+<br>
+
+🕐 Time:
+${booking.booking_time}
+
+<br>
+
+✂️ Service:
+${booking.service}
+
+<div class="status">
+Status: ${booking.status}
 </div>
 
 <button
-class="delete-button"
-onclick="deleteBarber(${index})"
+class="approve"
+onclick="updateBooking(${booking.id},'Approved')"
 >
-DELETE
+✅ APPROVE
+</button>
+
+<button
+class="reject"
+onclick="updateBooking(${booking.id},'Rejected')"
+>
+❌ REJECT
+</button>
+
+<button
+class="delete"
+onclick="deleteBooking(${booking.id})"
+>
+🗑️ DELETE
 </button>
 
 `;
 
+list.appendChild(item);
+
+});
+
+}catch(error){
+
+console.error(error);
+
+list.innerHTML =
+'<div class="error">Could not load bookings.</div>';
+
+}
+
+}
+
+
+/* ================================
+   APPROVE / REJECT
+================================ */
+
+async function updateBooking(id,status){
+
+try{
+
+await supabaseRequest(
+"bookings?id=eq."+id,
+{
+method:"PATCH",
+
+body:JSON.stringify({
+status:status
+})
+
+}
+);
+
+await loadBookings();
+
+}catch(error){
+
+console.error(error);
+
+alert("Could not update booking.");
+
+}
+
+}
+
+
+/* ================================
+   DELETE BOOKING
+================================ */
+
+async function deleteBooking(id){
+
+if(!confirm("Delete this booking?")){
+
+return;
+
+}
+
+try{
+
+await supabaseRequest(
+"bookings?id=eq."+id,
+{
+method:"DELETE"
+}
+);
+
+await loadBookings();
+
+}catch(error){
+
+console.error(error);
+
+alert("Could not delete booking.");
+
+}
+
+}
+
+
+/* ================================
+   ADMIN BARBERS
+================================ */
+
+function displayAdmin(){
+
+const list =
+document.getElementById("adminList");
+
+list.innerHTML = "";
+
+barbers.forEach((barber,index)=>{
+
+const item =
+document.createElement("div");
+
+item.className =
+"admin-item";
+
+item.innerHTML = `
+
+<strong>${barber.name}</strong>
+
+<br>
+
+📍 ${barber.location}
+
+<br>
+
+⭐ ${barber.rating}
+
+<br>
+
+💰 ${barber.price}
+
+<br>
+
+Services:
+${barber.services.join(", ")}
+
+<br><br>
+
+<button
+class="delete"
+onclick="deleteBarber(${index})"
+>
+🗑️ DELETE
+</button>
+
+`;
 
 list.appendChild(item);
 
@@ -1176,80 +1256,39 @@ list.appendChild(item);
 }
 
 
-/* ADD BARBER */
-
 function addBarber(){
 
 const name =
-document
-.getElementById(
-"newName"
-)
-.value
-.trim();
-
+document.getElementById("newName")
+.value.trim();
 
 const location =
-document
-.getElementById(
-"newLocation"
-)
-.value
-.trim();
-
+document.getElementById("newLocation")
+.value.trim();
 
 const rating =
-document
-.getElementById(
-"newRating"
-)
-.value
-.trim();
-
+document.getElementById("newRating")
+.value.trim();
 
 const price =
-document
-.getElementById(
-"newPrice"
-)
-.value
-.trim();
+document.getElementById("newPrice")
+.value.trim();
 
-
-const servicesText =
-document
-.getElementById(
-"newServices"
-)
+const services =
+document.getElementById("newServices")
 .value
 .toLowerCase()
-.trim();
+.split(",")
+.map(x=>x.trim())
+.filter(Boolean);
 
+if(!name || !location){
 
-if(!name ||
-!location){
-
-alert(
-"Please enter at least a barber name and location."
-);
+alert("Enter barber name and location.");
 
 return;
 
 }
-
-
-const services =
-servicesText
-.split(",")
-.map(
-function(item){
-
-return item.trim();
-
-}
-)
-.filter(Boolean);
-
 
 barbers.push({
 
@@ -1257,86 +1296,35 @@ name:name,
 
 location:location,
 
-rating:
-rating ||
-"New",
+rating:rating || "New",
 
-price:
-price ||
-"Contact barber",
+price:price || "Contact barber",
 
 services:
-services
+services.length
+? services
+: ["haircut"]
 
 });
 
-
-saveData();
-
 displayBarbers();
 
 displayAdmin();
 
-
-document
-.getElementById(
-"newName"
-)
-.value =
-"";
-
-document
-.getElementById(
-"newLocation"
-)
-.value =
-"";
-
-document
-.getElementById(
-"newRating"
-)
-.value =
-"";
-
-document
-.getElementById(
-"newPrice"
-)
-.value =
-"";
-
-document
-.getElementById(
-"newServices"
-)
-.value =
-"";
-
-
-alert(
-"Barber added successfully!"
-);
+document.getElementById("newName").value = "";
+document.getElementById("newLocation").value = "";
+document.getElementById("newRating").value = "";
+document.getElementById("newPrice").value = "";
+document.getElementById("newServices").value = "";
 
 }
 
-
-/* DELETE */
 
 function deleteBarber(index){
 
-if(
-confirm(
-"Delete this barber?"
-)
-){
+if(confirm("Delete this barber?")){
 
-barbers.splice(
-index,
-1
-);
-
-saveData();
+barbers.splice(index,1);
 
 displayBarbers();
 
@@ -1347,21 +1335,21 @@ displayAdmin();
 }
 
 
-/* CLOSE ADMIN */
+/* ================================
+   CLOSE ADMIN
+================================ */
 
 function closeAdmin(){
 
-document
-.getElementById(
-"adminPanel"
-)
-.style.display =
-"none";
+document.getElementById("adminPanel")
+.style.display = "none";
 
 }
 
 
-/* START */
+/* ================================
+   START
+================================ */
 
 displayBarbers();
 
